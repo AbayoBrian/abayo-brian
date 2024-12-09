@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Schedule a Consultation - Abayo Brian</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="content">
+        <div class="inner">
+            <article class="box post post-excerpt">
+                <header>
+                    <h2>Schedule a Consultation</h2>
+                </header>
+
+                <!-- Consultation Information -->
+                <section>
+                    <h3>Mentorship Consultation</h3>
+                    <p>Are you looking to take your skills in <strong>Data Science</strong>, <strong>Machine Learning</strong>, or related fields to the next level? Whether you’re a student looking for academic guidance, a professional wanting to expand your career, or someone curious about getting into the field, I offer <strong>one-on-one mentorship sessions</strong> tailored to your needs.</p>
+                    <p><strong>What You Can Expect:</strong></p>
+                    <ul>
+                        <li><strong>Personalized Learning Path:</strong> I will guide you through the basics of data science or machine learning based on your current level and career goals.</li>
+                        <li><strong>Practical Insights:</strong> Whether you're tackling a specific project or preparing for a career change, I'll help you apply real-world data science concepts to your work.</li>
+                        <li><strong>Skills Development:</strong> We’ll work together to improve your technical skills, including but not limited to:
+                            <ul>
+                                <li>Machine Learning Algorithms</li>
+                                <li>Data Analysis & Visualization</li>
+                                <li>Building Predictive Models</li>
+                                <li>AI Concepts</li>
+                                <li>Data Preprocessing</li>
+                                <li>Business Intelligence and Analytics</li>
+                            </ul>
+                        </li>
+                        <li><strong>Problem Solving:</strong> Bring your questions, challenges, or projects, and we’ll collaborate to find solutions.</li>
+                    </ul>
+                    <p><strong>Who Can Benefit:</strong></p>
+                    <ul>
+                        <li><strong>Students:</strong> If you're studying data science, computer science, or related fields and need guidance on assignments, projects, or exam preparation.</li>
+                        <li><strong>Professionals:</strong> If you're already in the field and want to further specialize or learn new tools and techniques to boost your career.</li>
+                        <li><strong>Aspiring Learners:</strong> If you're new to the field and want to explore data science or machine learning from the basics.</li>
+                    </ul>
+                </section>
+
+                <!-- Consultation Form -->
+                <form method="POST" action="https://formspree.io/f/xbljelwg" id="booking-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required />
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required />
+
+                    <label for="date">Choose a date:</label>
+                    <input type="date" id="date" name="date" required />
+
+                    <label for="time">Choose a time:</label>
+                    <input type="time" id="time" name="time" required />
+
+                    <br>
+                    <label for="message">Message (max 500 words):</label>
+                    <textarea id="message" name="message" placeholder="Add any specific details..." maxlength="2500" required></textarea>
+                    <br>
+
+                    <button type="submit">Book Consultation</button>
+                </form>
+
+                <!-- Calendar -->
+                <div id="calendar-container"></div>
+            </article>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <h1 id="logo"><a href="#">Abayo Brian</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Portfolio</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="homepage.html">Landing Page </a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- FullCalendar JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Set the date input field to only allow dates from today onward
+            var today = new Date().toISOString().split('T')[0];
+            $('#date').attr('min', today);
+
+            // Set the time input field to allow only times from the current time onward
+            var currentTime = new Date().toTimeString().split(' ')[0].substring(0, 5);
+            $('#time').attr('min', currentTime);
+
+            $('#calendar-container').fullCalendar({
+                defaultView: 'month',
+                events: [
+                    {
+                        title: 'Consultation - Meeting with Client',
+                        start: '2024-12-10T10:00:00',
+                        end: '2024-12-10T11:00:00',
+                    },
+                    {
+                        title: 'Research Meeting',
+                        start: '2024-12-12T15:00:00',
+                        end: '2024-12-12T16:00:00',
+                    }
+                ],
+                eventClick: function(event) {
+                    // Show the booking form and pre-fill the date and time
+                    $('#date').val(event.start.format('YYYY-MM-DD'));
+                    $('#time').val(event.start.format('HH:mm'));
+                }
+            });
+        });
+    </script>
+</body>
+</html>

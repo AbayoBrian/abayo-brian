@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact - Abayo Brian</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.css" rel="stylesheet" />
+    <style>
+        /* Background video styles */
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Ensure the content is above the video */
+        #content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            margin-left: 250px; /* To prevent content from overlapping the sidebar */
+        }
+
+        /* Styles for the form */
+        form {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #0073b1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005f8c;
+        }
+
+        /* Styles for the image gallery */
+        .image-gallery {
+            display: flex;
+            gap: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .image-gallery img {
+            width: 30%;
+            height: auto;
+            object-fit: cover;
+            animation: slide 10s linear infinite;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Video -->
+    <video autoplay muted loop>
+        <source src="videos/background.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+
+    <div id="content">
+        <div class="inner">
+            <article class="box post post-excerpt">
+                <header>
+                    <h2>Let's Get in Touch</h2>
+                </header>
+                <p>
+                    I would be happy to discuss any business inquiries, collaborations, or opportunities. Please feel free to schedule a consultation with me by providing your details below. This will allow us to arrange a time that works best for both of us, so we can dive into your project and explore how we can work together.
+                </p>
+
+                <h3>Schedule a Consultation</h3>
+                <form method="POST" action="https://formspree.io/f/xanyznal">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required />
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required />
+
+                    <label for="date">Choose a date:</label>
+                    <input type="date" id="date" name="date" required />
+
+                    <label for="time">Choose a time:</label>
+                    <input type="time" id="time" name="time" required />
+
+                    <label for="message">Message (max 500 words):</label>
+                    <textarea id="message" name="message" maxlength="500" required></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+
+                <div id="calendar"></div>
+            </article>
+        </div>
+
+        <!-- Image Gallery positioned below the calendar -->
+        <div class="image-gallery">
+            <img src="images/data1.jpeg" alt="Data Science" />
+            <img src="images/data2.jpeg" alt="Data Science" />
+            <img src="images/data17.jpeg" alt="Data Science" />
+            <img src="images/data3.jpeg" alt="Data Science" />
+            <img src="images/data19.jpeg" alt="Data Science" />
+            <img src="images/data4.jpeg" alt="Data Science" />
+            <img src="images/data16.jpeg" alt="Data Science" />
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <h1 id="logo"><a href="#">Abayo Brian</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li class="current"><a href="contact.html">Contact</a></li>
+                <li><a href="booking_form.html">Mentorship</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="homepage.html">Landing Page </a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Initialize the calendar
+            $('#calendar').fullCalendar({
+                events: [
+                    {
+                        title: 'Meeting with Client',
+                        start: '2024-12-10T10:00:00',
+                        end: '2024-12-10T11:00:00',
+                        description: 'Discuss project details'
+                    },
+                    {
+                        title: 'Team Sync',
+                        start: '2024-12-12T14:00:00',
+                        end: '2024-12-12T15:00:00',
+                        description: 'Internal team meeting'
+                    }
+                ],
+                eventClick: function(event) {
+                    // Show the booking form and pre-fill the date
+                    $('#date').val(event.start.format('YYYY-MM-DD'));
+                    $('#time').val('');
+                },
+                selectable: true,
+                selectHelper: true,
+                select: function(start, end) {
+                    var selectedDate = start.format('YYYY-MM-DD');
+                    if (start.isBefore(moment(), 'day')) {
+                        alert('Please select a future date.');
+                        $('#calendar').fullCalendar('unselect');
+                    } else {
+                        $('#date').val(selectedDate);
+                        $('#time').val('');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

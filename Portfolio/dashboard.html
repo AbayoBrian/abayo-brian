@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Interactive Dashboard</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+        }
+
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 220px; /* Increased width to ensure proper display */
+            height: 100%;
+            background-color: #333;
+            padding-top: 20px;
+            color: white;
+            z-index: 10;
+        }
+
+        #sidebar h1 a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            text-align: center;
+            display: block;
+            padding: 10px 0;
+        }
+
+        #sidebar nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #sidebar nav ul li {
+            margin: 10px 0;
+        }
+
+        #sidebar nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #sidebar nav ul li a:hover {
+            color: #4CAF50;
+        }
+
+        #content-wrapper {
+            margin-left: 240px; /* Adjusted to create space for the sidebar */
+            padding: 20px;
+            flex: 1;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        #intro {
+            padding: 20px;
+            text-align: center;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        #dashboard {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .content-container {
+            width: 45%;
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: #f4f4f4;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .social-media a {
+            margin: 0 10px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Section -->
+    <div id="sidebar">
+        <h1 id="logo"><a href="images/data10.jpeg">Abayo Brian</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="current"><a href="about.html">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="booking_form.html">Mentorship</a></li>
+                <li><a href="homepage.html">Landing Page </a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper">
+        <!-- Header Section -->
+        <header>
+            <h1>Interactive Dashboard</h1>
+        </header>
+
+        <!-- Introduction Section -->
+        <section id="intro">
+            <h2>Overview of Sales, Margins, Volumes, and Conversions</h2>
+            <p>The following dashboard provides insights into sales, margins, volumes, and conversions, with focused views on product performance and regional data.</p>
+            <p><strong>Objective:</strong> The goal is to get an at-a-glance view of key metrics and track how a business or project is performing in real-time through an interactive dashboard.</p>
+            <p><strong>Result:</strong> Using this dashboard, users can make data-driven decisions, apply filters, and gain insights from various charts that show progress and trends.</p>
+            <p><strong>Project Duration:</strong> Development typically takes 2 weeks to 2 months, divided into design and data collection phases, before building and deploying the dashboard.</p>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard">
+            <div class="content-container">
+                <h3>Sales Overview</h3>
+                <img src="images/dashboard-overview.jpeg" alt="Sales Overview" style="width: 100%; border-radius: 8px;">
+                <p>This dashboard section provides an overview of total sales, trends, and performance across different regions and products.</p>
+            </div>
+            
+            <div class="content-container">
+                <h3>Margins Analysis</h3>
+                <img src="images/margins_analysis.jpeg" alt="Margins Analysis" style="width: 100%; border-radius: 8px;">
+                <p>Margins analysis helps track profitability and identify areas where cost savings can be achieved across products and services.</p>
+            </div>
+        </section>
+
+        <!-- Social Media Links -->
+        <div class="social-media" style="text-align: center; padding: 10px;">
+            <a href="https://www.linkedin.com/in/abayo-brian" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/abayo.brian" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://github.com/abayo-brian" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+
+        <!-- Footer Section -->
+        <footer>
+            <p>Want to know more? <a href="contact.html">Contact me</a>.</p>
+            <p>© 2024 Brian Abayo Portfolio | All Rights Reserved</p>
+            <p><a href="#">LinkedIn</a> | <a href="booking_form.html">Email</a></p>
+        </footer>
+    </div> <!-- End content-wrapper -->
+
+</body>
+</html>
