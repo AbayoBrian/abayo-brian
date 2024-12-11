@@ -89,21 +89,11 @@
             border-bottom: none;
         }
 
-        /* Background video styles */
-        video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-
-        /* Ensure the content is above the video */
+        /* Ensure the content is above the background */
         #content {
             position: relative;
             z-index: 1;
+            padding-top: 60px; /* Ensure content is not hidden under fixed top-nav */
         }
 
         /* Styles for social media links */
@@ -124,25 +114,13 @@
             color: #0073b1; /* LinkedIn Blue for hover effect */
         }
 
-        /* Styles for the gallery animation */
-        .image-gallery {
-            display: flex;
-            gap: 10px;
-            flex-wrap: nowrap;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .image-gallery img {
-            width: 30%;
-            height: auto;
-            object-fit: cover;
-            animation: slide 10s linear infinite;
-        }
-
-        @keyframes slide {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-100%); }
+        /* About Me content */
+        .about-me {
+            padding: 20px;
+            background-color: #ffffff;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -195,16 +173,10 @@
         </div>
     </div>
 
-    <!-- Background Video -->
-    <video autoplay muted loop>
-        <source src="videos/background.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
     <div id="content">
         <div class="inner">
             <!-- About Me Content -->
-            <article class="box post post-excerpt">
+            <article class="box post post-excerpt about-me">
                 <header>
                     <h2>About Me</h2>
                 </header>
@@ -212,18 +184,6 @@
                 <p>
                     I am a Junior Data Scientist, specializing in Data Science and Machine Learning. My academic journey has equipped me with a strong foundation in data-driven methodologies and analytical techniques. I am passionate about leveraging data science to address practical challenges across various domains, including agriculture, fraud detection, and business analytics. My goal is to develop solutions that are impactful and innovative, combining technical expertise with real-world applications.
                 </p>
-
-                <!-- Dynamic Image Gallery -->
-                <div class="image-gallery">
-                    <img src="images/data1.jpeg" alt="Data Science" />
-                    <img src="images/data19.jpeg" alt="Data Science" />
-                    <img src="images/data17.jpeg" alt="Data Science" />
-                    <img src="images/data15.jpeg" alt="Data Science" />
-                    <img src="images/data3.jpeg" alt="Data Science" />
-                    <img src="images/data4.jpeg" alt="Data Science" />
-                    <img src="images/data16.jpeg" alt="Data Science" />
-                    <img src="images/logo.jpeg" alt="Data Science" />
-                </div>
 
                 <!-- NLP Content -->
                 <div class="nlp-section">
