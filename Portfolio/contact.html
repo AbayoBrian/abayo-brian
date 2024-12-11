@@ -17,7 +17,7 @@
             z-index: 1;
             display: flex;
             flex-direction: column;
-            margin-left: 250px; /* To prevent content from overlapping the sidebar */
+            margin-left: 0; /* Remove left margin for better layout control */
             padding: 20px;
         }
 
@@ -81,11 +81,12 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 250px;
-            height: 100%;
+            width: 100%;
+            height: auto;
             background-color: #333;
             color: white;
-            padding: 20px;
+            padding: 10px;
+            z-index: 10;
         }
 
         #logo a {
@@ -148,6 +149,22 @@
     </style>
 </head>
 <body class="contact-page">
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <h1 id="logo"><a href="#">Abayo Brian</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="homepage.html">Landing Page</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li class="current"><a href="contact.html">Contact</a></li>
+                <li><a href="booking_form.html">Mentorship</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+    </div>
+
     <div id="content">
         <div class="inner">
             <article class="box post post-excerpt">
@@ -192,22 +209,6 @@
             <img src="images/data4.jpeg" alt="Data Science" />
             <img src="images/data16.jpeg" alt="Data Science" />
         </div>
-    </div>
-
-    <!-- Sidebar -->
-    <div id="sidebar">
-        <h1 id="logo"><a href="#">Abayo Brian</a></h1>
-        <nav id="nav">
-            <ul>
-                <li><a href="homepage.html">Landing Page</a></li>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li class="current"><a href="contact.html">Contact</a></li>
-                <li><a href="booking_form.html">Mentorship</a></li>
-                <li><a href="dashboard.html">Dashboard</a></li>
-            </ul>
-        </nav>
     </div>
 
     <!-- Scripts -->
