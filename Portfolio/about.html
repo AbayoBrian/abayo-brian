@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -13,20 +13,21 @@
             padding: 0;
             display: flex;
             height: 100vh;
-            background-color: #f4f4f9;
+            flex-direction: row;
+            overflow-x: hidden;
         }
 
         /* Sidebar Styles */
         #sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: white;
             position: fixed;
             top: 0;
             left: 0;
-            width: 220px; /* Adjusted width to match first example */
-            height: 100%;
-            background-color: #333;
+            bottom: 0;
             padding-top: 20px;
-            color: white;
-            z-index: 10;
+            transition: 0.3s ease;
         }
 
         #sidebar #logo {
@@ -60,15 +61,17 @@
         }
 
         #sidebar nav ul li a:hover {
-            background-color: #4CAF50;
+            background-color: #34495e;
         }
 
         /* Main content area */
         #content {
-            margin-left: 240px; /* Adjusted to create space for the sidebar */
+            margin-left: 250px;
             padding: 20px;
-            width: calc(100% - 240px);
+            width: calc(100% - 250px);
             box-sizing: border-box;
+            overflow-x: hidden;
+            transition: 0.3s ease;
         }
 
         .inner {
@@ -76,9 +79,32 @@
             margin: auto;
         }
 
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding-top: 10px;
+            }
+
+            #sidebar #logo {
+                margin-bottom: 20px;
+            }
+
+            #content {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            #sidebar nav ul li a {
+                text-align: center;
+            }
+        }
+
         /* Style for content section */
         article {
-            background-color: #fff;
+            background-color: #f9f9f9;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -106,55 +132,6 @@
         ul li {
             margin-bottom: 10px;
         }
-
-        /* Footer Styles */
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        footer a {
-            color: #f4f4f4;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .social-media a {
-            margin: 0 10px;
-            color: white;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            #sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                padding-top: 10px;
-            }
-
-            #sidebar #logo {
-                margin-bottom: 20px;
-            }
-
-            #content {
-                margin-left: 0;
-                width: 100%;
-            }
-
-            #sidebar nav ul li a {
-                text-align: center;
-            }
-        }
-
     </style>
 </head>
 <body>
@@ -183,7 +160,7 @@
                 </header>
 
                 <p>
-                    I am a Junior Data Scientist, specializing in Data Science and Machine Learning. My academic journey has equipped me with a strong foundation in data-driven methodologies and analytical techniques. I am deeply passionate about leveraging data science to address practical challenges across various domains, including agriculture, fraud detection, and business analytics. My goal is to develop solutions that are both impactful and innovative, combining technical expertise with real-world applications.
+                    I am a Junior Data Scientist, where I specialize in Data Science and Machine Learning. My academic journey has equipped me with a strong foundation in data-driven methodologies and analytical techniques. I am deeply passionate about leveraging data science to address practical challenges across various domains, including agriculture, fraud detection, and business analytics. My goal is to develop solutions that are both impactful and innovative, combining technical expertise with real-world applications.
                 </p>
 
                 <p>
@@ -248,13 +225,6 @@
             </article>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>Want to know more? <a href="contact.html">Contact me</a>.</p>
-        <p>© 2024 Brian Abayo Portfolio | All Rights Reserved</p>
-        <p><a href="#">LinkedIn</a> | <a href="booking_form.html">Email</a></p>
-    </footer>
 
 </body>
 </html>
