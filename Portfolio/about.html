@@ -1,19 +1,79 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>About Me - Abayo Brian</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Abayo Brian</title>
     <link rel="stylesheet" href="assets/css/main.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.css" rel="stylesheet" />
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+        h5 {
+            font-size: 2rem; /* Make the font size large */
+            font-weight: bold; /* Make the text bold */
+        }
+
+        /* Ensure the content is above the video */
+        #content {
+            position: relative;
+            z-index: 1;
             display: flex;
             flex-direction: column;
-            height: 100vh;
+            padding: 20px;
+            margin-top: 80px; /* Adjust for the top nav height */
+        }
+
+        /* Styles for the form */
+        form {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #0073b1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005f8c;
+        }
+
+        /* Image gallery styles */
+        .image-gallery {
+            display: flex;
+            gap: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .image-gallery img {
+            width: 30%;
+            height: auto;
+            object-fit: cover;
+            animation: slide 10s linear infinite;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
         }
 
         /* Top Navigation Styles */
@@ -81,51 +141,9 @@
             color: #007BFF;
         }
 
-        /* Main Content */
-        #content {
-            padding: 20px;
-            width: 100%;
-            box-sizing: border-box;
-            margin-top: 80px; /* Adjust for the top nav height */
-        }
-
-        .inner {
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        article {
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            margin-bottom: 20px;
-            font-size: 2em;
-        }
-
-        h3 {
-            margin-top: 30px;
-            font-size: 1.5em;
-        }
-
-        h4 {
-            margin-top: 20px;
-            font-size: 1.2em;
-        }
-
-        ul {
-            margin-top: 10px;
-        }
-
-        ul li {
-            margin-bottom: 10px;
-        }
     </style>
 </head>
-<body>
+<body class="contact-page">
 
     <!-- Top Navigation -->
     <div id="top-nav">
@@ -173,68 +191,90 @@
     <!-- Main Content -->
     <div id="content">
         <div class="inner">
-            <!-- About Me Content -->
             <article class="box post post-excerpt">
                 <header>
-                    <h2>About Me</h2>
+                    <h2>Let's Get in Touch</h2>
                 </header>
-
                 <p>
-                    I am a Junior Data Scientist, where I specialize in Data Science and Machine Learning. My academic journey has equipped me with a strong foundation in data-driven methodologies and analytical techniques. I am deeply passionate about leveraging data science to address practical challenges across various domains, including agriculture, fraud detection, and business analytics. My goal is to develop solutions that are both impactful and innovative, combining technical expertise with real-world applications.
+                    I would be happy to discuss any business inquiries, collaborations, or opportunities. Please feel free to schedule a consultation with me by providing your details below. This will allow us to arrange a time that works best for both of us, so we can dive into your project and explore how we can work together.
                 </p>
 
-                <p>
-                    Through my coursework and independent projects, I have developed hands-on experience in building machine learning models, conducting data analysis, and utilizing programming tools like Python, R, and SQL. These skills have been honed through projects that aim to optimize agricultural productivity, detect fraudulent activities in financial systems, and create actionable business insights. I thrive on exploring the intersection of technology and problem-solving to create value for diverse stakeholders.
-                </p>
+                <h3>Schedule a Consultation</h3>
+                <form method="POST" action="https://formspree.io/f/xanyznal">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required />
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required />
 
-                <p>
-                    In addition to technical expertise, I enjoy collaborating with multidisciplinary teams, sharing knowledge, and contributing to a growing body of research in my field. I believe in the power of data science to transform industries, and I am committed to advancing solutions that foster sustainability, equity, and innovation.
-                </p>
+                    <label for="date">Choose a date:</label>
+                    <input type="date" id="date" name="date" required />
 
-                <!-- NLP Content -->
-                <div class="nlp-section">
-                    <h3>Case Study: Natural Language Processing in Chatbots</h3>
-                    <p>
-                        As part of my work with Natural Language Processing (NLP), I contributed to the development of an AI-powered chatbot designed to handle customer inquiries. The aim was to enhance the chatbot's ability to understand and respond to a variety of customer queries.
-                    </p>
+                    <label for="time">Choose a time:</label>
+                    <input type="time" id="time" name="time" required />
 
-                    <h4>Pre-Processing Steps</h4>
-                    <p>Key to the success of this project was the pre-processing of unstructured text data. This included:</p>
-                    <ul>
-                        <li><strong>Tokenization:</strong> Breaking down the text into smaller units, such as words or phrases, to facilitate further processing.</li>
-                        <li><strong>Normalization:</strong> Converting the text to lowercase and removing unnecessary characters (e.g., punctuation) to standardize the data.</li>
-                        <li><strong>Stop Word Removal:</strong> Removing common words such as "the," "is," and "a" that don’t contribute meaningful information.</li>
-                        <li><strong>Lemmatization:</strong> Reducing words to their base form (e.g., "running" becomes "run") to simplify analysis.</li>
-                    </ul>
+                    <label for="message">Message (max 500 words):</label>
+                    <textarea id="message" name="message" maxlength="500" required></textarea>
 
-                    <h4>Advanced NLP Techniques</h4>
-                    <p>To further improve the chatbot's understanding, we implemented advanced techniques such as:</p>
-                    <ul>
-                        <li><strong>Named Entity Recognition (NER):</strong> Identifying and classifying entities within the text (e.g., product names, locations).</li>
-                        <li><strong>Part-of-Speech (POS) Tagging:</strong> Understanding the grammatical structure of the sentences to better interpret user intent.</li>
-                    </ul>
+                    <button type="submit">Send Message</button>
+                </form>
 
-                    <p>
-                        By applying these techniques, we were able to significantly improve the chatbot's accuracy and relevance in handling customer inquiries, ensuring a smoother user experience.
-                    </p>
-                </div>
-
-                <!-- Data Analytics Section -->
-                <div class="data-analytics">
-                    <h3>Data Analytics</h3>
-                    <p>
-                        Data analytics distinguishes itself from data analysis by not just providing information about the current situation but predicting future outcomes. While data analysis focuses on understanding the present and past, data analytics anticipates what the future may hold by using statistical models, machine learning techniques, and historical data.
-                    </p>
-
-                    <h4>Example Case: Predicting Churn for Recurring Customers</h4>
-                    <p>
-                        In a project to predict churn for a recurring customer base, I applied data analytics techniques to historical customer interaction data. Using machine learning models, we identified patterns that predicted which customers were at high risk of discontinuing their subscription. This insight was critical for implementing targeted retention strategies.
-                    </p>
-                </div>
-
+                <div id="calendar"></div>
             </article>
+        </div>
+
+        <!-- Image Gallery positioned below the calendar -->
+        <div class="image-gallery">
+            <img src="images/data1.jpeg" alt="Data Science" />
+            <img src="images/data2.jpeg" alt="Data Science" />
+            <img src="images/data17.jpeg" alt="Data Science" />
+            <img src="images/data3.jpeg" alt="Data Science" />
+            <img src="images/data19.jpeg" alt="Data Science" />
+            <img src="images/data4.jpeg" alt="Data Science" />
+            <img src="images/data16.jpeg" alt="Data Science" />
         </div>
     </div>
 
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Initialize the calendar
+            $('#calendar').fullCalendar({
+                events: [
+                    {
+                        title: 'Meeting with Client',
+                        start: '2024-12-10T10:00:00',
+                        end: '2024-12-10T11:00:00',
+                        description: 'Discuss project details'
+                    },
+                    {
+                        title: 'Team Sync',
+                        start: '2024-12-12T14:00:00',
+                        end: '2024-12-12T15:00:00',
+                        description: 'Internal team meeting'
+                    }
+                ],
+                eventClick: function(event) {
+                    // Show the booking form and pre-fill the date
+                    $('#date').val(event.start.format('YYYY-MM-DD'));
+                    $('#time').val('');
+                },
+                selectable: true,
+                selectHelper: true,
+                select: function(start, end) {
+                    var selectedDate = start.format('YYYY-MM-DD');
+                    if (start.isBefore(moment(), 'day')) {
+                        alert('Please select a future date.');
+                        $('#calendar').fullCalendar('unselect');
+                    } else {
+                        $('#date').val(selectedDate);
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
