@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact - Abayo Brian</title>
     <link rel="stylesheet" href="assets/css/main.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.css" rel="stylesheet" />
@@ -81,6 +81,49 @@
             0% { transform: translateX(0%); }
             100% { transform: translateX(-100%); }
         }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 1200px) {
+            #content {
+                margin-left: 0; /* Remove left margin on smaller screens */
+            }
+
+            .image-gallery img {
+                width: 45%; /* Reduce image width on medium screens */
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            #content {
+                margin-left: 0;
+                padding: 15px; /* Add padding for mobile */
+            }
+
+            .image-gallery {
+                flex-direction: column; /* Stack images vertically */
+                align-items: center;
+            }
+
+            .image-gallery img {
+                width: 80%; /* Make images larger on small screens */
+            }
+
+            /* Form adjustments */
+            form {
+                padding: 15px;
+            }
+
+            button {
+                width: 100%; /* Make the button full width on small screens */
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .image-gallery img {
+                width: 90%; /* Further adjust image size for very small screens */
+            }
+        }
+
     </style>
 </head>
 <body>
