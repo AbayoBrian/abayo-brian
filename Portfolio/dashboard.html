@@ -141,31 +141,42 @@
             color: white;
         }
     </style>
+
+    <script>
+        function navigateToPage(event, url) {
+            // Prevent the default behavior of the link
+            event.preventDefault();
+            // Log the URL to the console (for debugging purposes)
+            console.log("Navigating to:", url);
+            // Redirect to the target URL
+            window.location.href = url;
+        }
+    </script>
 </head>
 <body>
 
     <!-- Top Navigation -->
     <div id="top-nav">
         <div class="logo">
-            <a href="index.html">
+            <a href="index.html" onclick="navigateToPage(event, 'index.html')">
                 <img src="images/data10.jpeg" alt="Logo">
             </a>
         </div>
 
         <!-- Navigation Dropdown -->
-<div class="dropdown">
-    <button class="dropbtn">Explore</button>
-    <div class="dropdown-content">
-        <a href="index.html">Home</a>
-        <a href="about.html">About Me</a>
-        <a href="projects.html">Projects</a>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="contact.html">Contact</a>
-        <a href="booking_form.html">Mentorship</a>
-    </div>
-</div>
+        <div class="dropdown">
+            <button class="dropbtn">Explore</button>
+            <div class="dropdown-content">
+                <a href="index.html" onclick="navigateToPage(event, 'index.html')">Home</a>
+                <a href="about.html" onclick="navigateToPage(event, 'about.html')">About Me</a>
+                <a href="projects.html" onclick="navigateToPage(event, 'projects.html')">Projects</a>
+                <a href="dashboard.html" onclick="navigateToPage(event, 'dashboard.html')">Dashboard</a>
+                <a href="contact.html" onclick="navigateToPage(event, 'contact.html')">Contact</a>
+                <a href="booking_form.html" onclick="navigateToPage(event, 'booking_form.html')">Mentorship</a>
+            </div>
+        </div>
 
-
+        <!-- Most Visited Dropdown -->
         <div class="dropdown">
             <button class="dropbtn">Most Visited</button>
             <div class="dropdown-content">
@@ -179,6 +190,7 @@
             </div>
         </div>
 
+        <!-- Theme Dropdown -->
         <div class="dropdown">
             <button class="dropbtn">Theme</button>
             <div class="dropdown-content">
@@ -233,7 +245,7 @@
             <p>© 2024 Brian Abayo Portfolio | All Rights Reserved</p>
             <p><a href="#">LinkedIn</a> | <a href="booking_form.html">Email</a></p>
         </footer>
-    </div> <!-- End content-wrapper -->
+    </div>
 
 </body>
 </html>
