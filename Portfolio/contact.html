@@ -11,13 +11,12 @@
             font-weight: bold; /* Make the text bold */
         }
 
-        /* Ensure the content is above the video */
+        /* Content Layout */
         #content {
             position: relative;
             z-index: 1;
             display: flex;
             flex-direction: column;
-            margin-left: 0; /* Remove left margin for better layout control */
             padding: 20px;
         }
 
@@ -76,45 +75,62 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* Sidebar Styling */
-        #sidebar {
+        /* Top Navigation Bar */
+        #top-nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: auto;
             background-color: #333;
             color: white;
             padding: 10px;
             z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        #logo a {
-            color: white;
-            text-decoration: none;
+        #top-nav .logo {
             font-size: 24px;
         }
 
-        #nav ul {
+        #top-nav ul {
             list-style: none;
-            padding: 0;
+            display: flex;
+            margin: 0;
         }
 
-        #nav ul li {
-            margin-bottom: 15px;
+        #top-nav ul li {
+            margin-left: 20px;
         }
 
-        #nav ul li a {
+        #top-nav ul li a {
             color: white;
             text-decoration: none;
+        }
+
+        #top-nav .dropdown {
+            position: relative;
+        }
+
+        #top-nav .dropdown-menu {
+            position: absolute;
+            display: none;
+            background-color: #333;
+            list-style: none;
+            padding: 10px;
+            top: 100%;
+            left: 0;
+            min-width: 150px;
+            border-radius: 5px;
+        }
+
+        #top-nav .dropdown:hover .dropdown-menu {
+            display: block;
         }
 
         /* Responsive styles */
         @media screen and (max-width: 1200px) {
-            #content {
-                margin-left: 0; /* Remove left margin on smaller screens */
-            }
-
             .image-gallery img {
                 width: 45%; /* Reduce image width on medium screens */
             }
@@ -122,7 +138,6 @@
 
         @media screen and (max-width: 768px) {
             #content {
-                margin-left: 0;
                 padding: 15px;
             }
 
@@ -138,6 +153,15 @@
             button {
                 width: 100%; /* Make the button full width on small screens */
             }
+
+            #top-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #top-nav ul li {
+                margin: 10px 0;
+            }
         }
 
         @media screen and (max-width: 480px) {
@@ -145,14 +169,14 @@
                 width: 90%; /* Further adjust image size for very small screens */
             }
         }
-
     </style>
 </head>
 <body class="contact-page">
-    <!-- Sidebar -->
-    <div id="sidebar">
-        <h1 id="logo"><a href="#">Abayo Brian</a></h1>
-        <nav id="nav">
+
+    <!-- Top Navigation Bar -->
+    <div id="top-nav">
+        <div class="logo"><a href="#">Abayo Brian</a></div>
+        <nav>
             <ul>
                 <li><a href="homepage.html">Landing Page</a></li>
                 <li><a href="index.html">Home</a></li>
@@ -161,10 +185,32 @@
                 <li class="current"><a href="contact.html">Contact</a></li>
                 <li><a href="booking_form.html">Mentorship</a></li>
                 <li><a href="dashboard.html">Dashboard</a></li>
+                <li class="dropdown">
+                    <a href="#">Explore</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Option 1</a></li>
+                        <li><a href="#">Option 2</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Most Visited</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Item 1</a></li>
+                        <li><a href="#">Item 2</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Theme</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Light Mode</a></li>
+                        <li><a href="#">Dark Mode</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </div>
 
+    <!-- Content -->
     <div id="content">
         <div class="inner">
             <article class="box post post-excerpt">
