@@ -16,75 +16,77 @@
             height: 100vh;
         }
 
-        /* Sidebar Styles */
-        #sidebar {
-            width: 100%;
-            background-color: #2c3e50;
-            color: white;
-            position: relative;
-            padding-top: 20px;
-            top: 0;
-        }
-
-        #sidebar #logo {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        #sidebar #logo a {
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        #sidebar nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        #sidebar nav ul li {
-            margin: 15px 0;
-        }
-
-        #sidebar nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            display: block;
+        /* Top Navigation Styles */
+        #top-nav {
+            background-color: #007BFF;
             padding: 10px;
-            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
         }
 
-        #sidebar nav ul li a:hover {
-            background-color: #34495e;
+        /* Logo */
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
         }
 
-        /* Dropdown Menu */
-        #sidebar nav ul li ul {
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown .dropbtn {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 15px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .dropdown .dropdown-content {
             display: none;
-            padding-left: 20px;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1;
         }
 
-        #sidebar nav ul li.active > ul {
+        .dropdown:hover .dropdown-content {
             display: block;
         }
 
-        /* Hamburger Icon */
-        #menu-toggle {
-            display: none;
-            font-size: 30px;
-            cursor: pointer;
-            color: white;
-            margin-left: 20px;
+        .dropdown .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid #ddd;
         }
 
-        /* Main content area */
+        .dropdown .dropdown-content a:hover {
+            background-color: #ddd;
+            color: #007BFF;
+        }
+
+        /* Main Content */
         #content {
             padding: 20px;
             width: 100%;
             box-sizing: border-box;
-            margin-top: 10px;
+            margin-top: 80px; /* Adjust for the top nav height */
         }
 
         .inner {
@@ -92,46 +94,6 @@
             margin: auto;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            #sidebar {
-                position: relative;
-                height: auto;
-                padding-top: 10px;
-            }
-
-            #sidebar #logo {
-                margin-bottom: 20px;
-            }
-
-            #sidebar nav ul li {
-                text-align: center;
-            }
-
-            #content {
-                margin-top: 60px; /* Give space for the sidebar at the top */
-            }
-
-            #menu-toggle {
-                display: block;
-            }
-
-            #sidebar nav ul {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-            }
-
-            #sidebar nav ul li a {
-                text-align: center;
-            }
-
-            #sidebar nav ul li.active > a {
-                background-color: #34495e;
-            }
-        }
-
-        /* Style for content section */
         article {
             background-color: #f9f9f9;
             padding: 20px;
@@ -165,25 +127,47 @@
 </head>
 <body>
 
-    <!-- Sidebar -->
-    <div id="sidebar">
-        <h1 id="logo"><a href="#">Abayo Brian</a></h1>
-        <div id="menu-toggle" onclick="toggleMenu()">&#9776;</div>
-        <nav id="nav">
-            <ul>
-                <li><a href="index.html">Portfolio</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li>
-                    <a href="javascript:void(0)" onclick="toggleDropdown()">Landing Page</a>
-                    <ul>
-                        <li><a href="homepage.html">Home</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+    <!-- Top Navigation -->
+    <div id="top-nav">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/data10.jpeg" alt="Logo">
+            </a>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Explore</button>
+            <div class="dropdown-content">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Me</a>
+                <a href="projects.html">Projects</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="contact.html">Contact</a>
+                <a href="booking_form.html">Mentorship</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Most Visited</button>
+            <div class="dropdown-content">
+                <a href="https://herobgroups.co.ke/" target="_blank">Herobs (K) Limited</a>
+                <a href="https://www.huggingface.co/" target="_blank">Hugging Face</a>
+                <a href="https://www.kaggle.com/work" target="_blank">Kaggle</a>
+                <a href="https://scikit-learn.org/" target="_blank">Scikit-Learn</a>
+                <a href="https://www.ilri.org/" target="_blank">ILRI</a>
+                <a href="https://www.must.ac.ke/about-must/" target="_blank">Meru University</a>
+                <a href="https://abayobrian.github.io/">Old Portfolio</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Theme</button>
+            <div class="dropdown-content">
+                <a href="#" id="light-theme">Light</a>
+                <a href="#" id="dark-theme">Dark</a>
+                <a href="#" id="system-theme">System</a>
+            </div>
+        </div>
     </div>
 
     <!-- Main Content -->
@@ -243,38 +227,14 @@
                     </p>
 
                     <h4>Example Case: Predicting Churn for Recurring Customers</h4>
-                    <p><strong>Goal:</strong> How can we create a recommendation system? How do we categorize customers to take separate actions for each group? These questions can be answered through data analytics techniques.</p>
-
-                    <p><strong>Result:</strong> By using statistics, programming, and machine learning, we can identify hidden patterns in the data. This allows us to build algorithms, probability estimations, or statistical models that can guide decision-making.</p>
-
-                    <p><strong>Project Duration:</strong> The project can range from 3 weeks to 2 months. It begins with understanding the situation and gathering data, followed by data analysis and sharing insights. Finally, an algorithm or model is developed for implementation.</p>
-
-                    <h4>Case Study: Which Customers Are Likely to Churn?</h4>
-                    <p>Churn refers to the percentage of customers who cancel within a given time period. Predicting churn is valuable for businesses with recurring customers. To predict churn, we need to understand the behaviors and characteristics that signal a high risk of cancellation.</p>
-
-                    <p><strong>Key Characteristics for Churn Prediction:</strong></p>
-                    <ul>
-                        <li><strong>Customer characteristics:</strong> Age, income, or other demographic details</li>
-                        <li><strong>Usage patterns:</strong> Frequency and types of usage over time</li>
-                    </ul>
+                    <p>
+                        In a project to predict churn for a recurring customer base, I applied data analytics techniques to historical customer interaction data. Using machine learning models, we identified patterns that predicted which customers were at high risk of discontinuing their subscription. This insight was critical for implementing targeted retention strategies.
+                    </p>
                 </div>
+
             </article>
         </div>
     </div>
-
-    <script>
-        // Toggle the menu visibility
-        function toggleMenu() {
-            var nav = document.querySelector("#sidebar nav ul");
-            nav.style.display = (nav.style.display === "flex") ? "none" : "flex";
-        }
-
-        // Toggle dropdown visibility
-        function toggleDropdown() {
-            var li = event.target.closest('li');
-            li.classList.toggle('active');
-        }
-    </script>
 
 </body>
 </html>
