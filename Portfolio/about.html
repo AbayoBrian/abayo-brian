@@ -2,66 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>About Me - Abayo Brian</title>
     <link rel="stylesheet" href="assets/css/main.css" />
+    
+    <!-- Font Awesome for Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
     <style>
-        h5 {
-            font-size: 2rem; /* Make the font size large */
-            font-weight: bold; /* Make the text bold */
-        }
-
-        /* Ensure the content is above the video */
-        #content {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            margin-left: 250px; /* To prevent content from overlapping the sidebar */
-            padding: 20px;
-        }
-
-        /* Styles for the form */
-        form {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #0073b1;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #005f8c;
-        }
-
-        /* Image gallery styles */
+        /* Styles for the gallery animation */
         .image-gallery {
             display: flex;
             gap: 10px;
+            flex-wrap: nowrap;
             overflow: hidden;
-            margin-top: 20px;
-            width: 100%;
+            position: relative;
         }
 
         .image-gallery img {
@@ -74,6 +29,23 @@
         @keyframes slide {
             0% { transform: translateX(0%); }
             100% { transform: translateX(-100%); }
+        }
+
+        /* Background video styles */
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Ensure the content is above the video */
+        #content {
+            position: relative;
+            z-index: 1;
         }
 
         /* Sidebar Styling */
@@ -108,97 +80,94 @@
             text-decoration: none;
         }
 
-        /* Footer styles for social links (removed) */
-        .footer {
-            text-align: center;
+        /* Content Styling */
+        #content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            margin-left: 250px;
             padding: 20px;
-            background-color: #333;
-            color: white;
-            margin-top: 40px;
         }
 
-        .social-media a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.5em;
-            margin: 0 15px;
+        .inner {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .social-media a:hover {
-            color: #0073b1;
+        .box.post-excerpt {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
         }
 
-        /* Responsive styles */
-        @media screen and (max-width: 1200px) {
-            #content {
-                margin-left: 0; /* Remove left margin on smaller screens */
-            }
-
-            .image-gallery img {
-                width: 45%; /* Reduce image width on medium screens */
-            }
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
 
-        @media screen and (max-width: 768px) {
-            #content {
-                margin-left: 0;
-                padding: 15px;
-            }
-
-            .image-gallery {
-                flex-direction: column; /* Stack images vertically */
-                align-items: center;
-            }
-
-            .image-gallery img {
-                width: 80%;
-            }
-
-            button {
-                width: 100%; /* Make the button full width on small screens */
-            }
+        h3, h4 {
+            font-size: 1.5rem;
+            margin-top: 20px;
         }
 
-        @media screen and (max-width: 480px) {
-            .image-gallery img {
-                width: 90%; /* Further adjust image size for very small screens */
-            }
+        ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .image-gallery {
+            display: flex;
+            gap: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .image-gallery img {
+            width: 30%;
+            height: auto;
+            object-fit: cover;
+            animation: slide 10s linear infinite;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
         }
     </style>
 </head>
-<body class="about-page">
+<body>
+    <!-- Background Video -->
+    <video autoplay muted loop>
+        <source src="videos/background.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
 
-    <!-- Sidebar -->
-    <div id="sidebar">
-        <h1 id="logo"><a href="#">Abayo Brian</a></h1>
-        <nav id="nav">
-            <ul>
-                <li><a href="homepage.html">Landing Page</a></li>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li class="current"><a href="contact.html">Contact</a></li>
-                <li><a href="booking_form.html">Mentorship</a></li>
-                <li><a href="dashboard.html">Dashboard</a></li>
-            </ul>
-        </nav>
-    </div>
-
-    <!-- Content -->
     <div id="content">
         <div class="inner">
+            <!-- About Me Content -->
             <article class="box post post-excerpt">
                 <header>
                     <h2>About Me</h2>
                 </header>
 
                 <p>
-                    I am a Junior Data Scientist, specializing in Data Science and Machine Learning. I am passionate about applying data-driven methodologies to solve real-world problems, particularly in fields like agriculture, banking fraud detection, and business analytics.
-                </p>
-                <p>
-                    My work focuses on leveraging programming languages like Python and R, along with machine learning algorithms, to build predictive models and data-driven solutions. Whether it's analyzing agricultural data or detecting anomalies in financial transactions, my goal is to create impactful, data-backed decisions that drive success.
+                    I am a Junior Data Scientist, where I specialize in Data Science and Machine Learning. My academic journey has equipped me with a strong foundation in data-driven methodologies and analytical techniques. I am deeply passionate about leveraging data science to address practical challenges across various domains, including agriculture, fraud detection, and business analytics. My goal is to develop solutions that are both impactful and innovative, combining technical expertise with real-world applications.
                 </p>
 
+                <p>
+                    Through my coursework and independent projects, I have developed hands-on experience in building machine learning models, conducting data analysis, and utilizing programming tools like Python, R, and SQL. These skills have been honed through projects that aim to optimize agricultural productivity, detect fraudulent activities in financial systems, and create actionable business insights. I thrive on exploring the intersection of technology and problem-solving to create value for diverse stakeholders.
+                </p>
+
+                <p>
+                    In addition to technical expertise, I enjoy collaborating with multidisciplinary teams, sharing knowledge, and contributing to a growing body of research in my field. I believe in the power of data science to transform industries, and I am committed to advancing solutions that foster sustainability, equity, and innovation.
+                </p>
+
+                <!-- Dynamic Image Gallery -->
                 <div class="image-gallery">
                     <img src="images/data1.jpeg" alt="Data Science" />
                     <img src="images/data19.jpeg" alt="Data Science" />
@@ -209,20 +178,95 @@
                     <img src="images/data16.jpeg" alt="Data Science" />
                     <img src="images/logo.jpeg" alt="Data Science" />
                 </div>
+
+                <!-- NLP Content -->
+                <div class="nlp-section">
+                    <h3>Case Study: Natural Language Processing in Chatbots</h3>
+                    <p>
+                        As part of my work with Natural Language Processing (NLP), I contributed to the development of an AI-powered chatbot designed to handle customer inquiries. The aim was to enhance the chatbot's ability to understand and respond to a variety of customer queries.
+                    </p>
+
+                    <h4>Pre-Processing Steps</h4>
+                    <p>Key to the success of this project was the pre-processing of unstructured text data. This included:</p>
+                    <ul>
+                        <li><strong>Tokenization:</strong> Breaking down the text into smaller units, such as words or phrases, to facilitate further processing.</li>
+                        <li><strong>Normalization:</strong> Converting the text to lowercase and removing unnecessary characters (e.g., punctuation) to standardize the data.</li>
+                        <li><strong>Stop Word Removal:</strong> Removing common words such as "the," "is," and "a" that don’t contribute meaningful information.</li>
+                        <li><strong>Lemmatization:</strong> Reducing words to their base form (e.g., "running" becomes "run") to simplify analysis.</li>
+                    </ul>
+
+                    <h4>Advanced NLP Techniques</h4>
+                    <p>To further improve the chatbot's understanding, we implemented advanced techniques such as:</p>
+                    <ul>
+                        <li><strong>Named Entity Recognition (NER):</strong> Identifying and classifying entities within the text (e.g., product names, locations).</li>
+                        <li><strong>Part-of-Speech (POS) Tagging:</strong> Understanding the grammatical structure of the sentences to better interpret user intent.</li>
+                    </ul>
+
+                    <p>
+                        By applying these techniques, we were able to significantly improve the chatbot's accuracy and relevance in handling customer inquiries, ensuring a smoother user experience.
+                    </p>
+                </div>
+
+                <!-- Data Analytics Section -->
+                <div class="data-analytics">
+                    <h3>Data Analytics</h3>
+                    <p>
+                        Data analytics distinguishes itself from data analysis by not just providing information about the current situation but predicting future outcomes. While data analysis focuses on understanding the present and past, data analytics anticipates what the future may hold by using statistical models, machine learning techniques, and historical data.
+                    </p>
+
+                    <h4>Example Case: Predicting Churn for Recurring Customers</h4>
+                    <p><strong>Goal:</strong> How can we create a recommendation system? How do we categorize customers to take separate actions for each group? These questions can be answered through data analytics techniques.</p>
+
+                    <p><strong>Result:</strong> By using statistics, programming, and machine learning, we can identify hidden patterns in the data. This allows us to build algorithms, probability estimations, or statistical models that can guide decision-making.</p>
+
+                    <p><strong>Project Duration:</strong> The project can range from 3 weeks to 2 months. It begins with understanding the situation and gathering data, followed by data analysis and sharing insights. Finally, an algorithm or model is developed for implementation.</p>
+
+                    <h4>Case Study: Which Customers Are Likely to Churn?</h4>
+                    <p>Churn refers to the percentage of customers who cancel within a given time period. Predicting churn is valuable for businesses with recurring customers. To predict churn, we need to understand the behaviors and characteristics that signal a high risk of cancellation.</p>
+
+                    <p><strong>Key Characteristics for Churn Prediction:</strong></p>
+                    <ul>
+                        <li><strong>Customer characteristics:</strong> Age, number of people in the household</li>
+                        <li><strong>Behavioral characteristics:</strong> Monthly electricity usage, time since sign-up</li>
+                    </ul>
+
+                    <p>Data analytics helps in selecting key characteristics that have the highest predictive power.</p>
+                    <div class="analytics-images">
+                        <img src="images/data9.jpeg" alt="Churn Prediction Curve" />
+                    </div>
+                    <h4>Customer Lifetime Value (CLV)</h4>
+                    <p>Calculating CLV is essential for churn prediction. CLV predicts the total value a customer will bring to the business over time, factoring in both past and future potential.</p>
+                    <div class="analytics-images">
+                        <img src="images/data8.jpeg" alt="Churn Prediction Curve" />
+                    </div>
+                    <h4>Predicting Churn</h4>
+                    <p>
+                        A statistical model uses selected characteristics, CLV, and customer lifetime to calculate the probability of churn. The model ranks customers by their likelihood of leaving, which can help prioritize retention efforts.
+                    </p>
+                    <div class="analytics-images">
+                        <img src="images/data7.jpeg" alt="Churn Prediction Curve" />
+                    </div>
+                </div>
             </article>
         </div>
     </div>
 
-    <!-- Footer (social links removed) -->
-    <div class="footer">
-        <!-- Social media links are no longer included -->
+    <div id="sidebar">
+        <section id="logo">
+            <h2><a href="/">Abayo Brian</a></h2>
+        </section>
+
+        <section id="nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </section>
     </div>
 
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <footer>
+        <p>&copy; 2024 Abayo Brian. All rights reserved.</p>
+    </footer>
 </body>
 </html>
