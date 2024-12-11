@@ -1,106 +1,15 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brian Abayo</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact - Abayo Brian</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.css" rel="stylesheet" />
     <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        /* Top Navigation */
-        #top-nav {
-            background-color: #007BFF;
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-radius: 50px;
+        /* Background video styles */
+        video {
             position: fixed;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        /* Logo */
-        .logo img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-
-        /* Dropdown */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown .dropbtn {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px 15px;
-            font-size: 1em;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .dropdown .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f1f1f1;
-            min-width: 160px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .dropdown .dropdown-content a:hover {
-            background-color: #ddd;
-            color: #007BFF;
-        }
-
-        .dropdown .dropdown-content a:last-child {
-            border-bottom: none;
-        }
-
-        /* Hero Section */
-        #hero {
-            position: relative;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-            margin-top: 100px; /* Avoid overlapping with the top nav */
-            overflow: hidden;
-        }
-
-        #hero video {
-            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
@@ -109,160 +18,180 @@
             z-index: -1;
         }
 
-        #hero h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-        }
-
-        #hero p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-        }
-
-        #hero .cta-button {
-            background-color: #007BFF;
-            padding: 15px 25px;
-            color: white;
-            font-size: 1.2em;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        #hero .cta-button:hover {
-            background-color: #0056b3;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .social-links {
+        /* Ensure the content is above the video */
+        #content {
+            position: relative;
+            z-index: 1;
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            flex-direction: column;
+            margin-left: 250px; /* To prevent content from overlapping the sidebar */
+        }
+
+        /* Styles for the form */
+        form {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
             margin-top: 10px;
         }
 
-        .social-links a {
-            text-decoration: none;
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
 
-        .social-links img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            transition: transform 0.3s;
+        button {
+            padding: 10px 20px;
+            background-color: #0073b1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
-        .social-links img:hover {
-            transform: scale(1.1);
+        button:hover {
+            background-color: #005f8c;
+        }
+
+        /* Styles for the image gallery */
+        .image-gallery {
+            display: flex;
+            gap: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .image-gallery img {
+            width: 30%;
+            height: auto;
+            object-fit: cover;
+            animation: slide 10s linear infinite;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
         }
     </style>
 </head>
-<body class="light-theme">
+<body>
+    <!-- Background Video -->
+    <video autoplay muted loop>
+        <source src="videos/background.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
 
-    <!-- Top Navigation -->
-    <div id="top-nav">
-        <!-- Logo -->
-        <div class="logo">
-            <a href="index.html">
-                <img src="images/data10.jpeg" alt="image">
-            </a>
+    <div id="content">
+        <div class="inner">
+            <article class="box post post-excerpt">
+                <header>
+                    <h2>Let's Get in Touch</h2>
+                </header>
+                <p>
+                    I would be happy to discuss any business inquiries, collaborations, or opportunities. Please feel free to schedule a consultation with me by providing your details below. This will allow us to arrange a time that works best for both of us, so we can dive into your project and explore how we can work together.
+                </p>
+
+                <h3>Schedule a Consultation</h3>
+                <form method="POST" action="https://formspree.io/f/xanyznal">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required />
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required />
+
+                    <label for="date">Choose a date:</label>
+                    <input type="date" id="date" name="date" required />
+
+                    <label for="time">Choose a time:</label>
+                    <input type="time" id="time" name="time" required />
+
+                    <label for="message">Message (max 500 words):</label>
+                    <textarea id="message" name="message" maxlength="500" required></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+
+                <div id="calendar"></div>
+            </article>
         </div>
 
-        <!-- Navigation Dropdown -->
-        <div class="dropdown">
-            <button class="dropbtn">Explore</button>
-            <div class="dropdown-content">
-                <a href="index.html">Home</a>
-                <a href="about.html">About Me</a>
-                <a href="projects.html">Projects</a>
-                <a href="dashboard.html">Dashboard</a>
-                <a href="contact.html">Contact</a>
-                <a href="booking_form.html">Mentorship</a>
-            </div>
-        </div>
-
-        <!-- Relevant Sites Dropdown -->
-        <div class="dropdown">
-            <button class="dropbtn">Most Visited</button>
-            <div class="dropdown-content">
-                <a href="https://herobgroups.co.ke/" target="_blank">Herobs (K) Limited</a>
-                <a href="https://www.huggingface.co/" target="_blank">Hugging Face</a>
-                <a href="https://www.kaggle.com/work" target="_blank">Kaggle</a>
-                <a href="https://scikit-learn.org/" target="_blank">Scikit-Learn</a>
-                <a href="https://www.ilri.org/" target="_blank">ILRI</a>
-                <a href="https://www.must.ac.ke/about-must/" target="_blank">Meru University</a>
-                <a href="https://abayobrian.github.io/">Old Portfolio</a>
-            </div>
-        </div>
-
-        <!-- Theme Toggle Dropdown -->
-        <div class="dropdown">
-            <button class="dropbtn">Theme</button>
-            <div class="dropdown-content">
-                <a href="#" id="light-theme">Light</a>
-                <a href="#" id="dark-theme">Dark</a>
-                <a href="#" id="system-theme">System</a>
-            </div>
+        <!-- Image Gallery positioned below the calendar -->
+        <div class="image-gallery">
+            <img src="images/data1.jpeg" alt="Data Science" />
+            <img src="images/data2.jpeg" alt="Data Science" />
+            <img src="images/data17.jpeg" alt="Data Science" />
+            <img src="images/data3.jpeg" alt="Data Science" />
+            <img src="images/data19.jpeg" alt="Data Science" />
+            <img src="images/data4.jpeg" alt="Data Science" />
+            <img src="images/data16.jpeg" alt="Data Science" />
         </div>
     </div>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <video autoplay muted loop>
-            <source src="videos/background.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <h1>Hi! I'm Brian Abayo, A Passionate Data Scientist</h1>
-        <p>Explore my projects and get in touch for collaborations.</p>
-        <a href="contact.html" class="cta-button">Contact Me</a>
-    </section>
-    
-    <footer>
-        <p>&copy; 2024 Brian Abayo Portfolio | All Rights Reserved</p>
-    
-        <!-- Social Links -->
-        <div class="social-links">
-            <!-- GitHub -->
-            <a href="https://github.com/AbayoBrian" target="_blank">
-                <i class="fab fa-github" style="font-size: 40px;"></i>
-            </a>
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/abayo-brian-a6658b263/" target="_blank">
-                <i class="fab fa-linkedin" style="font-size: 40px;"></i>
-            </a>
-        </div>
-    </footer>
-    
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <h1 id="logo"><a href="#">Abayo Brian</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li class="current"><a href="contact.html">Contact</a></li>
+                <li><a href="booking_form.html">Mentorship</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="homepage.html">Landing Page </a></li>
+            </ul>
+        </nav>
+    </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js"></script>
     <script>
-        // Theme toggle functionality
-        const lightBtn = document.getElementById('light-theme');
-        const darkBtn = document.getElementById('dark-theme');
-        const systemBtn = document.getElementById('system-theme');
-
-        lightBtn.addEventListener('click', () => {
-            document.body.className = 'light-theme';
-        });
-
-        darkBtn.addEventListener('click', () => {
-            document.body.className = 'dark-theme';
-        });
-
-        systemBtn.addEventListener('click', () => {
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                document.body.className = 'dark-theme';
-            } else {
-                document.body.className = 'light-theme';
-            }
+        $(document).ready(function() {
+            // Initialize the calendar
+            $('#calendar').fullCalendar({
+                events: [
+                    {
+                        title: 'Meeting with Client',
+                        start: '2024-12-10T10:00:00',
+                        end: '2024-12-10T11:00:00',
+                        description: 'Discuss project details'
+                    },
+                    {
+                        title: 'Team Sync',
+                        start: '2024-12-12T14:00:00',
+                        end: '2024-12-12T15:00:00',
+                        description: 'Internal team meeting'
+                    }
+                ],
+                eventClick: function(event) {
+                    // Show the booking form and pre-fill the date
+                    $('#date').val(event.start.format('YYYY-MM-DD'));
+                    $('#time').val('');
+                },
+                selectable: true,
+                selectHelper: true,
+                select: function(start, end) {
+                    var selectedDate = start.format('YYYY-MM-DD');
+                    if (start.isBefore(moment(), 'day')) {
+                        alert('Please select a future date.');
+                        $('#calendar').fullCalendar('unselect');
+                    } else {
+                        $('#date').val(selectedDate);
+                        $('#time').val('');
+                    }
+                }
+            });
         });
     </script>
-
 </body>
 </html>
