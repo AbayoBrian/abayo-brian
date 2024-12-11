@@ -10,77 +10,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
     <style>
-        /* Styles for the gallery animation */
-        .image-gallery {
-            display: flex;
-            gap: 10px;
-            flex-wrap: nowrap;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .image-gallery img {
-            width: 30%;
-            height: auto;
-            object-fit: cover;
-            animation: slide 10s linear infinite;
-        }
-
-        @keyframes slide {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        /* Background video styles */
-        video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-
-        /* Ensure the content is above the video */
-        #content {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Sidebar Styling */
-        #sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 250px;
-            height: 100%;
-            background-color: #333;
-            color: white;
-            padding: 20px;
-        }
-
-        #logo a {
-            color: white;
-            text-decoration: none;
-            font-size: 24px;
-        }
-
-        #nav ul {
-            list-style: none;
+        /* Styles for the consultation page used here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
-        #nav ul li {
-            margin-bottom: 15px;
-        }
-
-        #nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
-
-        /* Content Styling */
         #content {
             position: relative;
             z-index: 1;
@@ -120,6 +58,39 @@
             margin-bottom: 8px;
         }
 
+        /* Sidebar Styling */
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+        }
+
+        #logo a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        #nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #nav ul li {
+            margin-bottom: 15px;
+        }
+
+        #nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Dynamic Image Gallery */
         .image-gallery {
             display: flex;
             gap: 10px;
@@ -141,12 +112,6 @@
     </style>
 </head>
 <body>
-    <!-- Background Video -->
-    <video autoplay muted loop>
-        <source src="videos/background.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-    </video>
-
     <div id="content">
         <div class="inner">
             <!-- About Me Content -->
@@ -264,9 +229,5 @@
             </ul>
         </section>
     </div>
-
-    <footer>
-        <p>&copy; 2024 Abayo Brian. All rights reserved.</p>
-    </footer>
 </body>
 </html>
