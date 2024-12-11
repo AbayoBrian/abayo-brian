@@ -60,6 +60,25 @@
             background-color: #34495e;
         }
 
+        /* Dropdown Menu */
+        #sidebar nav ul li ul {
+            display: none;
+            padding-left: 20px;
+        }
+
+        #sidebar nav ul li.active > ul {
+            display: block;
+        }
+
+        /* Hamburger Icon */
+        #menu-toggle {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+            margin-left: 20px;
+        }
+
         /* Main content area */
         #content {
             padding: 20px;
@@ -85,12 +104,30 @@
                 margin-bottom: 20px;
             }
 
+            #sidebar nav ul li {
+                text-align: center;
+            }
+
             #content {
                 margin-top: 60px; /* Give space for the sidebar at the top */
             }
 
+            #menu-toggle {
+                display: block;
+            }
+
+            #sidebar nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+
             #sidebar nav ul li a {
                 text-align: center;
+            }
+
+            #sidebar nav ul li.active > a {
+                background-color: #34495e;
             }
         }
 
@@ -131,13 +168,20 @@
     <!-- Sidebar -->
     <div id="sidebar">
         <h1 id="logo"><a href="#">Abayo Brian</a></h1>
+        <div id="menu-toggle" onclick="toggleMenu()">&#9776;</div>
         <nav id="nav">
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Portfolio</a></li>
                 <li><a href="about.html">About Me</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="homepage.html">Landing Page</a></li>
+                <li>
+                    <a href="javascript:void(0)" onclick="toggleDropdown()">Landing Page</a>
+                    <ul>
+                        <li><a href="homepage.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </div>
@@ -217,6 +261,20 @@
             </article>
         </div>
     </div>
+
+    <script>
+        // Toggle the menu visibility
+        function toggleMenu() {
+            var nav = document.querySelector("#sidebar nav ul");
+            nav.style.display = (nav.style.display === "flex") ? "none" : "flex";
+        }
+
+        // Toggle dropdown visibility
+        function toggleDropdown() {
+            var li = event.target.closest('li');
+            li.classList.toggle('active');
+        }
+    </script>
 
 </body>
 </html>
