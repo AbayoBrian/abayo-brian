@@ -1,4 +1,151 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Me - Abayo Brian</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar Styles */
+        #sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            padding-top: 20px;
+        }
+
+        #sidebar #logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #sidebar #logo a {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        #sidebar nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #sidebar nav ul li {
+            margin: 15px 0;
+        }
+
+        #sidebar nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        #sidebar nav ul li a:hover {
+            background-color: #34495e;
+        }
+
+        /* Main content area */
+        #content {
+            margin-left: 250px;
+            padding: 20px;
+            width: calc(100% - 250px);
+            box-sizing: border-box;
+        }
+
+        .inner {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding-top: 10px;
+            }
+
+            #sidebar #logo {
+                margin-bottom: 20px;
+            }
+
+            #content {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            #sidebar nav ul li a {
+                text-align: center;
+            }
+        }
+
+        /* Style for content section */
+        article {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        h3 {
+            margin-top: 30px;
+            font-size: 1.5em;
+        }
+
+        h4 {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        ul {
+            margin-top: 10px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
 <body>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <h1 id="logo"><a href="#">Abayo Brian</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Portfolio</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="homepage.html">Landing Page</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
     <div id="content">
         <div class="inner">
             <!-- About Me Content -->
@@ -73,4 +220,6 @@
             </article>
         </div>
     </div>
+
 </body>
+</html>
